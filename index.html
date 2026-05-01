@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Min Thura Mon — PhD Candidate in Economics</title>
+  <meta name="description" content="Min Thura Mon — Applied Microeconomist. Research on human capital, inequality, and intergenerational mobility in developing countries." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1c2b4a;
+      --ink:    #2a2a28;
+      --muted:  #63625e;
+      --soft:   #a09e99;
+      --bg:     #faf9f6;
+      --surface:#f2f0eb;
+      --line:   rgba(42,42,40,0.11);
+      --accent: #24529a;
+      --acc-bg: #e9eef8;
+      --serif:  'EB Garamond', Georgia, serif;
+      --sans:   'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.72;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(250,249,246,0.93);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 880px; margin: 0 auto; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 52px;
+    }
+    .nav-name {
+      font-family: var(--serif); font-size: 1.1rem;
+      letter-spacing: 0.01em; color: var(--navy); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.855rem; font-weight: 400;
+      color: var(--muted); text-decoration: none;
+      letter-spacing: 0.02em; transition: color .18s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* Page */
+    .page { max-width: 880px; margin: 0 auto; padding: 0 2rem 6rem; }
+
+    /* Hero */
+    .hero {
+      display: grid; grid-template-columns: 1fr 190px;
+      gap: 3.5rem; align-items: start;
+      padding: 4.5rem 0 3.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .hero h1 {
+      font-family: var(--serif); font-size: 2.75rem; font-weight: 400;
+      color: var(--navy); line-height: 1.12; margin-bottom: 0.3rem;
+    }
+    .hero-sub {
+      font-size: 0.83rem; font-weight: 400;
+      letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--soft); margin-bottom: 1.4rem;
+    }
+    .hero-bio { font-size: 0.985rem; color: var(--ink); max-width: 530px; line-height: 1.8; }
+    .hero-bio + .hero-bio { margin-top: 0.75rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.75rem; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.84rem; font-weight: 500;
+      padding: 0.42rem 1rem; border-radius: 4px;
+      text-decoration: none; transition: all .18s;
+      letter-spacing: 0.01em; white-space: nowrap;
+    }
+    .btn-dark  { background: var(--navy); color: #fff; }
+    .btn-dark:hover { background: var(--accent); }
+    .btn-ghost { background: transparent; color: var(--muted); border: 1px solid var(--line); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    .photo-wrap { display: flex; justify-content: center; padding-top: 0.5rem; }
+    .photo-wrap img {
+      width: 160px; height: 160px; border-radius: 50%;
+      object-fit: cover; border: 2px solid var(--line);
+    }
+    .photo-initials {
+      width: 160px; height: 160px; border-radius: 50%;
+      background: var(--surface); border: 2px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 2.6rem;
+      color: var(--soft); letter-spacing: -0.03em;
+    }
+
+    /* Section */
+    section { padding: 3.2rem 0; border-bottom: 1px solid var(--line); }
+    section:last-of-type { border-bottom: none; }
+    .sec-label {
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.11em; text-transform: uppercase;
+      color: var(--soft); margin-bottom: 1.4rem;
+    }
+
+    /* Research */
+    .fields { margin-bottom: 1.5rem; }
+    .fields p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.2rem; }
+    .fields strong { color: var(--ink); font-weight: 500; }
+
+    .ext-links { display: flex; gap: 1rem; margin-bottom: 1.8rem; }
+    .ext-links a {
+      font-size: 0.84rem; color: var(--accent); text-decoration: none;
+      border-bottom: 1px solid rgba(36,82,154,.25); padding-bottom: 1px;
+      transition: border-color .15s;
+    }
+    .ext-links a:hover { border-color: var(--accent); }
+
+    .sub-head {
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 500;
+      color: var(--navy); margin: 1.8rem 0 0.9rem;
+    }
+
+    .paper-list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+    .paper {
+      display: grid; grid-template-columns: 26px 1fr;
+      padding: 1rem 0; border-bottom: 1px solid var(--line);
+    }
+    .paper:last-child { border-bottom: none; }
+    .paper-num { font-size: 0.8rem; color: var(--soft); padding-top: 2px; }
+    .paper-title-text {
+      font-family: var(--serif); font-size: 1.05rem;
+      line-height: 1.4; color: var(--navy); text-decoration: none;
+      display: block;
+    }
+    a.paper-title-text:hover { color: var(--accent); }
+    .paper-ref { font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; line-height: 1.55; }
+    .badge {
+      display: inline-block; font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.03em; padding: 2px 8px; border-radius: 3px; margin-top: 0.4rem;
+    }
+    .badge-pub  { background: #e5f3ea; color: #1f6b36; }
+    .badge-sub  { background: #eef1fb; color: #2a4fa0; }
+    .badge-wip  { background: #fdf3e5; color: #8a5500; }
+    .badge-conf { background: #f5eef8; color: #6b3494; }
+
+    /* Awards */
+    .award-list { list-style: none; }
+    .award {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: 0.7rem 0; border-bottom: 1px solid var(--line); gap: 1rem;
+    }
+    .award:last-child { border-bottom: none; }
+    .award-name { font-size: 0.95rem; color: var(--ink); flex: 1; }
+    .award-inst { font-size: 0.82rem; color: var(--soft); white-space: nowrap; }
+
+    /* Teaching */
+    .course-card {
+      background: #fff; border: 1px solid var(--line);
+      border-radius: 6px; padding: 1.4rem 1.5rem; margin-bottom: 1.25rem;
+    }
+    .course-card:last-child { margin-bottom: 0; }
+    .course-title {
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 500;
+      color: var(--navy); margin-bottom: 0.35rem;
+    }
+    .course-desc { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.9rem; }
+    .syllabus-link {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 0.83rem; color: var(--accent); text-decoration: none;
+      border-bottom: 1px solid rgba(36,82,154,.2); margin-bottom: 1rem;
+    }
+    .syllabus-link:hover { border-color: var(--accent); }
+    .week-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+      gap: 0.5rem;
+    }
+    .week-item {
+      background: var(--surface); border-radius: 4px;
+      padding: 0.45rem 0.7rem;
+    }
+    .week-label { font-size: 0.78rem; font-weight: 500; color: var(--ink); display: block; margin-bottom: 3px; }
+    .week-links { display: flex; gap: 0.6rem; }
+    .week-links a {
+      font-size: 0.78rem; color: var(--accent); text-decoration: none;
+      border-bottom: 1px solid rgba(36,82,154,.2);
+    }
+    .week-links a:hover { border-color: var(--accent); }
+
+    /* Contact */
+    .contact-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+      gap: 1.5rem;
+    }
+    .contact-item { display: flex; flex-direction: column; gap: 5px; }
+    .contact-label {
+      font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft);
+    }
+    .contact-val { font-size: 0.93rem; color: var(--ink); line-height: 1.65; }
+    .contact-val a { color: var(--accent); text-decoration: none; }
+    .contact-val a:hover { text-decoration: underline; }
+
+    footer { text-align: center; padding: 2rem 0 0; font-size: 0.78rem; color: var(--soft); }
+
+    @media (max-width: 620px) {
+      .hero { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0 2.5rem; }
+      .hero h1 { font-size: 2.1rem; }
+      .photo-wrap { order: -1; justify-content: flex-start; }
+      .photo-initials { width: 100px; height: 100px; font-size: 2rem; }
+      .nav-links { gap: 1.1rem; }
+      .award { flex-direction: column; gap: 0.1rem; }
+      .award-inst { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="/">Min Thura Mon</a>
+    <ul class="nav-links">
+      <li><a href="#research">Research</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- Hero -->
+  <header class="hero">
+    <div>
+      <h1>Min Thura Mon</h1>
+      <p class="hero-sub">PhD Candidate in Economics &nbsp;·&nbsp; Applied Micro &amp; Distributional Macro</p>
+      <p class="hero-bio">
+        I am from Myanmar (Burma) with graduate degrees in Economics and Environmental Management.
+        My research focuses on how environmental shocks shape human capital formation,
+        inequality and intergenerational mobility, and rural household behaviors under imperfect
+        markets in developing countries.
+      </p>
+      <p class="hero-bio">
+        My work bridges empirical and structural approaches — using causal inference and
+        microeconometrics to identify mechanisms, and heterogeneous agent models to quantify
+        their aggregate implications.
+      </p>
+      <div class="hero-actions">
+        <a href="cv.pdf" class="btn btn-dark">↓ Download CV</a>
+        <a href="https://scholar.google.com/citations?user=jkCTG24AAAAJ&hl=en" class="btn btn-ghost" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://www.researchgate.net/profile/Min-Mon-2" class="btn btn-ghost" target="_blank" rel="noopener">ResearchGate</a>
+        <a href="mailto:minthura_mon@cmu.ac.th" class="btn btn-ghost">Email</a>
+      </div>
+    </div>
+    <div class="photo-wrap">
+      <img src="assets/photo.jpeg" alt="Min Thura Mon">
+    </div>
+  </header>
+
+  <!-- Research -->
+  <section id="research">
+    <p class="sec-label">Research</p>
+    <div class="fields">
+      <p><strong>Primary Fields:</strong> Applied Microeconomics (Environment &amp; Labor)</p>
+      <p><strong>Secondary Fields:</strong> Distributional Macroeconomics and Political Economy</p>
+    </div>
+    <div class="ext-links">
+      <a href="https://scholar.google.com/citations?user=jkCTG24AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
+      <a href="https://www.researchgate.net/profile/Min-Mon-2" target="_blank" rel="noopener">ResearchGate ↗</a>
+    </div>
+
+    <h3 class="sub-head">Peer-reviewed Articles</h3>
+    <ul class="paper-list">
+
+      <li class="paper">
+        <span class="paper-num">1.</span>
+        <div>
+          <a href="https://doi.org/10.3390/en17071748" class="paper-title-text" target="_blank" rel="noopener">
+            CCUS Technology and Carbon Emissions: Evidence from the United States
+          </a>
+          <p class="paper-ref">Mon, M. T., Tansuchat, R., &amp; Yamaka, W. — <em>Energies</em>, 17(7), 1748 (2024)</p>
+          <span class="badge badge-pub">Published</span>
+        </div>
+      </li>
+
+      <li class="paper">
+        <span class="paper-num">2.</span>
+        <div>
+          <a href="https://doi.org/10.1016/j.gsf.2026.102331" class="paper-title-text" target="_blank" rel="noopener">
+            Underused Geothermal Potential in Southeast Asia's Net-Zero Transition
+          </a>
+          <p class="paper-ref">Ramadhan, R., &amp; Mon, M. T. — <em>Geoscience Frontiers</em>, 102331 (2026)</p>
+          <span class="badge badge-pub">Published</span>
+        </div>
+      </li>
+
+      <li class="paper">
+        <span class="paper-num">3.</span>
+        <div>
+          <a href="https://doi.org/10.1016/j.engeos.2024.100335" class="paper-title-text" target="_blank" rel="noopener">
+            Carbon Capture, Utilization, and Storage in Indonesia: Storage Capacity, Current Status, Economic Viability, and Policy
+          </a>
+          <p class="paper-ref">Ramadhan, R., Mon, M. T., Tangparitkul, S., Tansuchat, R., &amp; Agustin, D. A. — <em>Energy Geoscience</em>, 100335 (2024)</p>
+          <span class="badge badge-pub">Published</span>
+        </div>
+      </li>
+
+      <li class="paper">
+        <span class="paper-num">4.</span>
+        <div>
+          <span class="paper-title-text">What Explains the Gender Wage Gap in Japan? Evidence from High-Dimensional Wage Decompositions</span>
+          <p class="paper-ref">Mon, M. T., &amp; Leurcharusmee, S. — Under submission (2026)</p>
+          <span class="badge badge-sub">Under Review</span>
+        </div>
+      </li>
+
+    </ul>
+
+    <h3 class="sub-head">Works in Progress</h3>
+    <ul class="paper-list">
+
+      <li class="paper">
+        <span class="paper-num">1.</span>
+        <div>
+          <span class="paper-title-text">Assets and Access: How Parental Wealth Shapes Educational Investment under Credit Constraints</span>
+          <p class="paper-ref">Mon, M. T. — 2026</p>
+          <span class="badge badge-wip">In Progress</span>
+        </div>
+      </li>
+
+    </ul>
+
+    <h3 class="sub-head">Conference Articles</h3>
+    <ul class="paper-list">
+
+      <li class="paper">
+        <span class="paper-num">1.</span>
+        <div>
+          <span class="paper-title-text">Application of Geographic Information System in Salinity Distribution of the Bang Pakong River, Thailand</span>
+          <p class="paper-ref">Mon, M. T., Piemjaiswang, R., Phetrak, A., &amp; Kittipongvises, S. — <em>11th International Conference on Environmental Engineering, Science and Management</em>, pp. 119–125 (2022)</p>
+          <span class="badge badge-conf">Conference</span>
+        </div>
+      </li>
+
+      <li class="paper">
+        <span class="paper-num">2.</span>
+        <div>
+          <span class="paper-title-text">Preliminary Studies on Subsidence in Bagan-Nyaung Oo Area, Mandalay Region</span>
+          <p class="paper-ref">Zaw, T. N., Htet, S. W., &amp; Mon, M. T. — <em>Journal of Myanmar Academy of Arts and Sciences</em>, 17(5), 251–282 (2019)</p>
+          <span class="badge badge-conf">Journal Article</span>
+        </div>
+      </li>
+
+      <li class="paper">
+        <span class="paper-num">3.</span>
+        <div>
+          <span class="paper-title-text">Geohazards and Preliminary Studies on Environmental Degradation in Bagan-Nyaung Oo Area, Mandalay Region</span>
+          <p class="paper-ref">Zaw, T. N., Htet, S. W., &amp; Mon, M. T. — <em>Journal of Myanmar Academy of Arts and Sciences</em>, 16(5), 69–105 (2018)</p>
+          <span class="badge badge-conf">Journal Article</span>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- Teaching -->
+  <section id="teaching">
+    <p class="sec-label">Teaching</p>
+
+    <div class="course-card">
+      <p class="course-title">Mathematical Economics</p>
+      <p class="course-desc">
+        An intensive undergraduate course, part of the Foundation Economics Course at Inya Economics.
+        Class materials are freely available — because education is a public good.
+      </p>
+      <a href="https://drive.google.com/file/d/1lTsPztiwWb8ACPBry9mL7c_FYEB5tQAQ/view?usp=sharing" class="syllabus-link" target="_blank" rel="noopener">↗ Syllabus (2025)</a>
+      <div class="week-grid">
+        <div class="week-item">
+          <span class="week-label">Week 1</span>
+          <div class="week-links"><a href="https://drive.google.com/file/d/1tLrvOpLo3Of_qxCgo1keP9dTFy3Jd1W-/view?usp=drive_link" target="_blank" rel="noopener">Lecture</a></div>
+        </div>
+        <div class="week-item">
+          <span class="week-label">Week 2</span>
+          <div class="week-links">
+            <a href="https://drive.google.com/file/d/1eCv5tj2E4m2PI5b7z1PIME1ea7xFNFye/view?usp=drive_link" target="_blank" rel="noopener">Lecture</a>
+            <a href="https://drive.google.com/file/d/18zEOckA4lvNKkeGnknCAi-zivJN4afBf/view?usp=drive_link" target="_blank" rel="noopener">PS</a>
+          </div>
+        </div>
+        <div class="week-item">
+          <span class="week-label">Week 3</span>
+          <div class="week-links">
+            <a href="https://drive.google.com/file/d/1H7s6MkrZFDBi-WQ-sPjPI1E2fCx_m5ls/view?usp=drive_link" target="_blank" rel="noopener">Lecture</a>
+            <a href="https://drive.google.com/file/d/1g4r03yqK1GCWH1-i99vapOwfS_3WGWSP/view?usp=drive_link" target="_blank" rel="noopener">PS</a>
+          </div>
+        </div>
+        <div class="week-item">
+          <span class="week-label">Week 4</span>
+          <div class="week-links">
+            <a href="https://drive.google.com/file/d/1Fo2fLZKU8lY9c_rOHA9L0J7HqrM_Fsb6/view?usp=drive_link" target="_blank" rel="noopener">Lecture</a>
+            <a href="https://drive.google.com/file/d/13OaMzD6yBsXqNUWKMrM8-_ZBXP7gdMl4/view?usp=drive_link" target="_blank" rel="noopener">PS</a>
+          </div>
+        </div>
+        <div class="week-item">
+          <span class="week-label">Week 5</span>
+          <div class="week-links">
+            <a href="https://drive.google.com/file/d/1790lExS1gbFlVDml1vFjFKOIv8f3nNTm/view?usp=drive_link" target="_blank" rel="noopener">Lecture</a>
+            <a href="https://drive.google.com/file/d/1VAJOVYRnM5lNltOXLXsx9fJR3HY8QDxo/view?usp=drive_link" target="_blank" rel="noopener">PS</a>
+          </div>
+        </div>
+        <div class="week-item">
+          <span class="week-label">Week 6</span>
+          <div class="week-links">
+            <a href="https://drive.google.com/file/d/172TU8mseHs8co5l9lwl77dUbV4djkU7W/view?usp=drive_link" target="_blank" rel="noopener">Lecture</a>
+            <a href="https://drive.google.com/file/d/1cY38NN4iJGxYdQ7ZaX7wqfTKJnfATHYg/view?usp=drive_link" target="_blank" rel="noopener">PS</a>
+          </div>
+        </div>
+        <div class="week-item">
+          <span class="week-label">Week 7</span>
+          <div class="week-links">
+            <a href="https://drive.google.com/file/d/1z-i9MUg53R9PkvZHtJujHHwbV4djkU7W/view?usp=drive_link" target="_blank" rel="noopener">Lecture</a>
+            <a href="https://drive.google.com/file/d/1wAD30uUVnCzcH-GUNbFv0ShGtoTdD7Mv/view?usp=drive_link" target="_blank" rel="noopener">PS</a>
+          </div>
+        </div>
+        <div class="week-item">
+          <span class="week-label">Week 8</span>
+          <div class="week-links">
+            <a href="https://drive.google.com/file/d/1oMwBEn1yYEkSF0OXTzICAlml6qW81ydK/view?usp=drive_link" target="_blank" rel="noopener">Lecture</a>
+          </div>
+        </div>
+        <div class="week-item">
+          <span class="week-label">Week 9</span>
+          <div class="week-links">
+            <a href="https://drive.google.com/file/d/1_peb7j9MX1CUYzDLO-xCNEVRQeGaEsmR/view?usp=drive_link" target="_blank" rel="noopener">Lecture</a>
+            <a href="https://drive.google.com/file/d/1__SDSJO2GHwBOdHUUttJ_wNNJy6Aib5u/view?usp=drive_link" target="_blank" rel="noopener">PS</a>
+          </div>
+        </div>
+        <div class="week-item">
+          <span class="week-label">Week 10</span>
+          <div class="week-links">
+            <a href="https://drive.google.com/file/d/1k6oXu_275dJv2hOo93cicEH_yT7eqjpE/view?usp=drive_link" target="_blank" rel="noopener">Final Exam</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="course-card">
+      <p class="course-title">Statistics and Econometrics</p>
+      <p class="course-desc">
+        Covered the econometrics component of the Foundation Economics Course at Inya Economics (2024).
+      </p>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section id="awards">
+    <p class="sec-label">Awards &amp; Scholarships</p>
+    <ul class="award-list">
+      <li class="award">
+        <span class="award-name">Sir John Monash Scholarship for Excellence (M.Res.)</span>
+        <span class="award-inst">Monash University, AU</span>
+      </li>
+      <li class="award">
+        <span class="award-name">Presidential Scholarship — Active Recruitment (M.Econ. &amp; Ph.D.)</span>
+        <span class="award-inst">Chiang Mai University, TH</span>
+      </li>
+      <li class="award">
+        <span class="award-name">ASEAN Graduate Scholarship</span>
+        <span class="award-inst">Chulalongkorn University, TH</span>
+      </li>
+      <li class="award">
+        <span class="award-name">Top Paper Award — Business Strategy &amp; Decision-making (RQF Lv.6)</span>
+        <span class="award-inst">ABE, UK</span>
+      </li>
+      <li class="award">
+        <span class="award-name">First Position, Upper Second Honours Class</span>
+        <span class="award-inst">University of Yangon, MM</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <p class="sec-label">Contact</p>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <span class="contact-label">Email</span>
+        <span class="contact-val"><a href="mailto:minthura_mon@cmu.ac.th">minthura_mon@cmu.ac.th</a></span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Academic Profiles</span>
+        <span class="contact-val">
+          <a href="https://scholar.google.com/citations?user=jkCTG24AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a><br>
+          <a href="https://www.researchgate.net/profile/Min-Mon-2" target="_blank" rel="noopener">ResearchGate</a>
+        </span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-label">Code &amp; Teaching</span>
+        <span class="contact-val">
+          <a href="https://github.com/min-tm" target="_blank" rel="noopener">GitHub</a>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Min Thura Mon &nbsp;·&nbsp; <a href="https://minthuram.com" style="color:inherit;text-decoration:none;">minthuram.com</a></p>
+  </footer>
+
+</div>
+</body>
+</html>
